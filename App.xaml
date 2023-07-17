@@ -15,7 +15,31 @@
             <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
                 <view:HomeView/>
             </DataTemplate>
-            
+
+            <DataTemplate DataType="{x:Type viewModel:SignUpFormViewModel}">
+                <view:SignUpFormView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:SignUpSuccessViewModel}">
+                <view:SignUpSuccessView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:AlbumsViewModel}">
+                <view:AlbumsView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:SongsViewModel}">
+                <view:SongsView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:LoginViewModel}">
+                <view:LoginView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:FavoritesViewModel}">
+                <view:FavoritesView/>
+            </DataTemplate>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

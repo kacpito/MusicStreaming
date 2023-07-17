@@ -7,18 +7,23 @@
         xmlns:viewModel="clr-namespace:MusicStreaming.MVVM.ViewModel"
         xmlns:view="clr-namespace:MusicStreaming.MVVM.View"
         mc:Ignorable="d"
-        Title="Music Streaming Platform" 
-        Height="600" Width="920"
-        WindowStyle="SingleBorderWindow">
+        Title="Music Streaming Platform" Height="600" Width="900"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        AllowsTransparency="True"
+        MouseDown="Window_MouseDown">
     <Window.DataContext>
         <viewModel:MainViewModel/>
     </Window.DataContext>
     
     
-    <Border Background="#212121">
+    <Border Background="#212121"
+            CornerRadius="18">
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="220"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
@@ -27,13 +32,90 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <TextBlock Text="Elysian"
+            <Grid Grid.Row="0" Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="25"/>
+                    <ColumnDefinition Width="25"/>
+                    <ColumnDefinition Width="15"/>
+                </Grid.ColumnDefinitions>
+
+                <Button x:Name="btnMinimize"
+                        BorderThickness="0"
+                        Content="-"
+                        Foreground="White"
+                        Cursor="Hand"
+                        Grid.Column="1"
+                        VerticalAlignment="Top"
+                        Margin="0,10,0,0"
+                        Click="btnMinimize_Click">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#121212"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#535353"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="22" Height="22"
+                                    CornerRadius="12"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button x:Name="btnClose"
+                        BorderThickness="0"
+                        Content="X"
+                        Foreground="White"
+                        Cursor="Hand"
+                        Grid.Column="2"
+                        VerticalAlignment="Top"
+                        Margin="0,10,0,0"
+                        Click="btnClose_Click">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#121212"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#535353"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="22" Height="22"
+                                    CornerRadius="12"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </Grid>
+
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/Images/icon.png" Height="45" Width="45" Margin="10,0,0,0"/>
+                <TextBlock Text="Music Streaming&#10;Platform"
                        VerticalAlignment="Center"
-                       HorizontalAlignment="Left"
+                       HorizontalAlignment="Center"
+                       TextAlignment="Center"
                        Foreground="White"
-                       FontSize="22"
-                       Margin="20,0,0,0"
+                       FontSize="20"
+                       Margin="5,0,0,0"
                        FontFamily="/Fonts/GothamBook.ttf"/>
+            </StackPanel>
 
             <StackPanel Grid.Row="1">
 
@@ -41,34 +123,144 @@
                              Height="50"
                              Foreground="White"
                              FontSize="14"
+                             Command="{Binding HomeViewCommand}"
+                             Click="btnHome_Click"
                              Style="{StaticResource MenuButtonTheme}"/>
 
-                <RadioButton Content="Discovery"
+                <RadioButton Content="Albums"
                              Height="50"
                              Foreground="White"
                              FontSize="14"
+                             Click="btnAlbum_Click"
+                             Command="{Binding AlbumsViewCommand}"
                              Style="{StaticResource MenuButtonTheme}"/>
 
-                <RadioButton Content="Featured"
+                <RadioButton Content="Your favorites"
                              Height="50"
                              Foreground="White"
                              FontSize="14"
+                             Click="btnFav_Click"
+                             Command="{Binding FavoritesViewCommand}"
                              Style="{StaticResource MenuButtonTheme}"/>
 
             </StackPanel>
 
-            <TextBox Width="250"
-                     Height="40"
-                     VerticalContentAlignment="Center"
-                     HorizontalAlignment="Left"
-                     Margin="5"
-                     Grid.Column="1" 
-                     Style="{StaticResource ModernTextBox}"/>
-
-            <ContentControl Grid.Row="1"
-                            Grid.Column="1"
+            <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1">
+                <ContentControl
                             Margin="10"
                             Content="{Binding CurrentView}"/>
+
+                <Button x:Name="btnDisplay"
+                        BorderThickness="0"
+                        Content="Display album"
+                        FontSize="12"
+                        FontWeight="Medium"
+                        FontFamily="/Fonts/GothamBook.ttf"
+                        Foreground="White"
+                        Cursor="Hand"
+                        Margin="0,15,60,0"
+                        HorizontalAlignment="right"
+                        Visibility="Collapsed"
+                        Click="btnDisplay_Click"
+                        Command="{Binding SongsViewCommand}">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#121212"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#535353"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="150" Height="35"
+                                    CornerRadius="13"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button x:Name="btnAddToFav"
+                        BorderThickness="0"
+                        Content="Add to favorites"
+                        FontSize="12"
+                        FontWeight="Medium"
+                        FontFamily="/Fonts/GothamBook.ttf"
+                        Foreground="White"
+                        Cursor="Hand"
+                        Margin="0,15,60,0"
+                        HorizontalAlignment="right"
+                        Visibility="Collapsed"
+                        Click="btnDisplay_Click"
+                        Command="{Binding AddToFavoritesCommand}">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#121212"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#535353"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="150" Height="35"
+                                    CornerRadius="13"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button x:Name="btnRemoveFromFav"
+                        BorderThickness="0"
+                        Content="Remove from favorites"
+                        FontSize="12"
+                        FontWeight="Medium"
+                        FontFamily="/Fonts/GothamBook.ttf"
+                        Foreground="White"
+                        Cursor="Hand"
+                        Margin="0,15,60,0"
+                        HorizontalAlignment="right"
+                        Visibility="Collapsed"
+                        Command="{Binding RemoveFromFavoritesCommand}">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#121212"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#535353"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="150" Height="35"
+                                    CornerRadius="13"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </StackPanel>
+            
+           
+
+            
 
         </Grid>
     </Border>

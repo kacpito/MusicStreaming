@@ -9,23 +9,17 @@
 
   <ItemGroup>
     <None Remove="icon.png" />
-    <None Remove="Images\password_icon.png" />
-    <None Remove="Images\user_icon.png" />
+    <None Remove="Images\tick_icon.png" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.9" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.9" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Images\icon.png" />
-    <Resource Include="Images\password_icon.png" />
-    <Resource Include="Images\user_icon.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="MVVM\Model\" />
+    <Resource Include="Images\tick_icon.png" />
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,70 @@
+﻿<UserControl x:Class="MusicStreaming.MVVM.View.SignUpFormView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MusicStreaming.MVVM.View"
+             xmlns:viewModel="clr-namespace:MusicStreaming.MVVM.ViewModel" 
+             xmlns:customcontrols="clr-namespace:MusicStreaming.CustomControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="400">
+
+    <StackPanel>
+        <TextBlock Text="Create a new&#10;account"
+                           Foreground="White"
+                           FontSize="25"
+                           FontWeight="Medium"
+                           FontFamily="/Fonts/GothamBook.ttf"
+                           TextAlignment="Right"
+                           Margin="0,150,25,50"/>
+
+        <TextBlock Text="Username"
+                           Foreground="White"
+                           FontSize="12"
+                           FontWeight="Medium"
+                           FontFamily="/Fonts/GothamBook.ttf"
+                           Margin="0,25,25,0"
+                           TextAlignment="Right"/>
+
+        <TextBox x:Name="txtUser"
+                         Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"
+                         FontSize="12"
+                         FontWeight="Medium"
+                         FontFamily="/Fonts/GothamBook.ttf"
+                         Background="Transparent"
+                         Foreground="White"
+                         CaretBrush="LightGray"
+                         BorderBrush="DarkGray"
+                         BorderThickness="0,0,0,1"
+                         Height="32"
+                         VerticalContentAlignment="Center"
+                         HorizontalContentAlignment="Right"
+                         Margin="45,5,25,0">
+        </TextBox>
+
+        <TextBlock Text="Password"
+                           Foreground="White"
+                           FontSize="12"
+                           FontWeight="Medium"
+                           FontFamily="/Fonts/GothamBook.ttf"
+                           Margin="0,25,25,0"
+                           TextAlignment="Right"/>
+
+        
+        
+        <customcontrols:BindablePasswordBox Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                    Height="32"
+                                                    Margin="45,5,25,0">
+        </customcontrols:BindablePasswordBox>
+
+        <TextBlock Text="{Binding ErrorMessage}"
+                           Foreground="#d7596d"
+                           FontSize="12"
+                           FontWeight="Medium"
+                           FontFamily="/Fonts/GothamBook.ttf"
+                           Margin="0,25,25,0"
+                           HorizontalAlignment="Right"
+                           TextWrapping="Wrap"/>
+
+    </StackPanel>
+</UserControl>

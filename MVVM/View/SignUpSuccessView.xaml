@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="MusicStreaming.MVVM.View.SignUpSuccessView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MusicStreaming.MVVM.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="400">
+
+
+
+    <StackPanel Margin="0,50,0,0">
+
+        <Image Source="/Images/tick_icon.png" Height="100" Width="100" Margin="0,75,0,0" HorizontalAlignment="Center" />
+
+        <TextBlock Text="Success!"
+                           Foreground="White"
+                           FontSize="25"
+                           FontWeight="Medium"
+                           FontFamily="/Fonts/GothamBook.ttf"
+                           TextAlignment="Center"
+                           Margin="0,45,0,15"/>
+
+        <TextBlock Text="You have successfully created&#10;a new account!"
+                           Foreground="White"
+                           FontSize="17"
+                           FontWeight="Medium"
+                           FontFamily="/Fonts/GothamBook.ttf"
+                           TextAlignment="Center"
+                           Margin="0,0,0,25"/>
+
+        <TextBlock Text="You can close this window"
+                           Foreground="White"
+                           FontSize="11"
+                           FontWeight="Medium"
+                           FontFamily="/Fonts/GothamBook.ttf"
+                           TextAlignment="Center"
+                           Margin="0,0,0,50"/>
+
+    </StackPanel>
+</UserControl>

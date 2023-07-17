@@ -20,8 +20,8 @@
 
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
-                        <GradientStop Color="#5bc3ff" Offset="0.0"/>
-                        <GradientStop Color="#3aa0ff" Offset="1"/>
+                        <GradientStop Color="#227F32" Offset="0.0"/>
+                        <GradientStop Color="#44AC55" Offset="1"/>
                     </LinearGradientBrush>
                 </Border.Background>
 
@@ -59,11 +59,12 @@
 
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
-                        <GradientStop Color="#ffc554" Offset="0.0"/>
-                        <GradientStop Color="#ffb738" Offset="1"/>
+                        <GradientStop Color="#353535" Offset="0.0"/>
+                        <GradientStop Color="#121212" Offset="1"/>
                     </LinearGradientBrush>
                 </Border.Background>
-
+                
+                
 
             </Border>
 
@@ -86,23 +87,23 @@
             <StackPanel Orientation="Horizontal">
                 <Border Width="150"
                         Height="150"
-                        Background="#844eff"
+                        Background="#121212"
                         CornerRadius="10"
                         Margin="0"/>
 
                 <Border Width="150"
                         Height="150"
-                        Background="#4e99ff"
+                        Background="#535353"
                         CornerRadius="10"/>
 
                 <Border Width="150"
                         Height="150"
-                        Background="#4eff91"
+                        Background="#b3b3b3"
                         CornerRadius="10"/>
 
                 <Border Width="150"
                         Height="150"
-                        Background="#ecff4e"
+                        Background="#a1a1a1"
                         CornerRadius="10"/>
             </StackPanel>
             

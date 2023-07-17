@@ -15,18 +15,18 @@ using System.Windows.Shapes;
 namespace MusicStreaming.MVVM.View
 {
     /// <summary>
-    /// Logika interakcji dla klasy LoginView.xaml
+    /// Logika interakcji dla klasy SignUpView.xaml
     /// </summary>
-    public partial class LoginView : Window
+    public partial class SignUpView : Window
     {
-        public LoginView()
+        public SignUpView()
         {
             InitializeComponent();
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            if(e.LeftButton == MouseButtonState.Pressed)
+            if (e.LeftButton == MouseButtonState.Pressed)
             {
                 DragMove();
             }
@@ -39,7 +39,12 @@ namespace MusicStreaming.MVVM.View
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            this.Close();
+        }
+
+        private void btnSignUp_Click(object sender, RoutedEventArgs e)
+        {
+            btnSignUp.Visibility = Visibility.Collapsed;
         }
     }
 }

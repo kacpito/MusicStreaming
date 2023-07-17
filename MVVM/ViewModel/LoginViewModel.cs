@@ -3,9 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security;
 using System.Text;
+using System.Threading.Channels;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
+using Microsoft.EntityFrameworkCore;
 using MusicStreaming.Core;
+using MusicStreaming.MVVM.Model;
+using MusicStreaming.MVVM.View;
 
 namespace MusicStreaming.MVVM.ViewModel
 {
@@ -66,23 +71,32 @@ namespace MusicStreaming.MVVM.ViewModel
 
         private void ExecuteSignUpCommand(object obj)
         {
-            throw new NotImplementedException();
+            var signUpView = new SignUpView();
+            signUpView.Show();
         }
 
-        private bool CanExecuteLoginCommand(object arg)
-        {
-            bool validData;
-            if (string.IsNullOrWhiteSpace(Username) || Username.Length < 3 || 
-                Password == null || Password.Length < 3)
-                validData = false;
-            else
-                validData = true;
-            return validData;
-        }
+        private bool CanExecuteLoginCommand(object arg) =>
+            (string.IsNullOrWhiteSpace(Username) || Password == null) ? false : true;
 
         private void ExecuteLoginCommand(object obj)
         {
-            throw new NotImplementedException();
+            var tempPassword = new System.Net.NetworkCredential(string.Empty, Password).Password;
+
+            using (MusicStreamingDataContext context = new MusicStreamingDataContext())
+            {
+                User user = context.Users.FirstOrDefault(u => u.Username == Username && u.Password == tempPassword);
+
+                if (user != null)
+                {
+                    SessionManager.SetLoggedUserId(user.Id);
+                    MainWindow main = new MainWindow();
+                    main.Show();
+                }
+                else
+                {
+                    ErrorMessage = "User not found / Password incorrect";
+                }
+            }
         }
     }
 }
