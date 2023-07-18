@@ -22,4 +22,8 @@
     <Resource Include="Images\tick_icon.png" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Data\" />
+  </ItemGroup>
+
 </Project>

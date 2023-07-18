@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,27 @@ namespace MusicStreaming.MVVM.Model
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Data Source = MusicStreamingDB.db");
+            string solutionFilePath = GetPath();
+            optionsBuilder.UseSqlite($"Data Source={solutionFilePath}/Data/MusicStreamingDB.db");
+        }
+
+        private string GetPath()
+        {
+            string currentDirectory = Directory.GetCurrentDirectory();
+            string solutionFilePath = null;
+
+            while (currentDirectory != null)
+            {
+                string[] solutionFiles = Directory.GetFiles(currentDirectory, "*.sln");
+                if (solutionFiles.Length > 0)
+                {
+                    solutionFilePath = currentDirectory;
+                    break;
+                }
+
+                currentDirectory = Directory.GetParent(currentDirectory)?.FullName;
+            }
+            return solutionFilePath;
         }
 
         public DbSet<User> Users { get; set; }
