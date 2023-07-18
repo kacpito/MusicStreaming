@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MusicStreaming.MVVM.ViewModel
 {
+    /// <summary>
+    /// Represents the view model for the sign-up success page.
+    /// </summary>
     class SignUpSuccessViewModel
     {
     }

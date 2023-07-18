@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace MusicStreaming.MVVM.ViewModel
 {
+    /// <summary>
+    /// Represents the view model for the home view.
+    /// </summary>
     class HomeViewModel
     {
 

@@ -10,23 +10,59 @@ using MusicStreaming.MVVM.View;
 
 namespace MusicStreaming.MVVM.ViewModel
 {
+    /// <summary>
+    /// Represents the main view model for managing different views.
+    /// </summary>
     class MainViewModel : ObservableObject
     {
+        /// <summary>
+        /// Gets the command to switch to the home view.
+        /// </summary>
         public RelayCommand HomeViewCommand { get; set; }
+        /// <summary>
+        /// Gets the command to switch to the albums view.
+        /// </summary>
         public RelayCommand AlbumsViewCommand { get; set; }
+        /// <summary>
+        /// Gets the command to switch to the songs view.
+        /// </summary>
         public RelayCommand SongsViewCommand { get; set; }
+        /// <summary>
+        /// Gets the command to switch to the favorites view.
+        /// </summary>
         public RelayCommand FavoritesViewCommand { get; set; }
+        /// <summary>
+        /// Gets the command to add a song to favorites.
+        /// </summary>
         public RelayCommand AddToFavoritesCommand { get; set; }
+        /// <summary>
+        /// Gets the command to remove a song from favorites.
+        /// </summary>
         public RelayCommand RemoveFromFavoritesCommand { get; set; }
 
-
+        /// <summary>
+        /// Gets or sets the view model for the home view.
+        /// </summary>
         public HomeViewModel HomeVM { get; set; }
+        /// <summary>
+        /// Gets or sets the view model for the albums view.
+        /// </summary>
         public AlbumsViewModel AlbumsVM { get; set; }
+        /// <summary>
+        /// Gets or sets the view model for the songs view.
+        /// </summary>
         public SongsViewModel SongsVM { get; set; }
+        /// <summary>
+        /// Gets or sets the view model for the favorites view.
+        /// </summary>
         public FavoritesViewModel FavoritesVM { get; set; }
 
         private object _currentView;
 
+
+        /// <summary>
+        /// Gets or sets the current view.
+        /// </summary>
         public object CurrentView
         {
             get { return _currentView; }
@@ -37,7 +73,10 @@ namespace MusicStreaming.MVVM.ViewModel
             }
         }
 
-        public MainViewModel() 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MainViewModel"/> class.
+        /// </summary>
+        public MainViewModel()
         {
             HomeVM = new HomeViewModel();
             AlbumsVM = new AlbumsViewModel();
@@ -57,7 +96,7 @@ namespace MusicStreaming.MVVM.ViewModel
             SongsViewCommand = new RelayCommand(o =>
             {
                 SongsVM = new SongsViewModel(AlbumsVM.SelectedAlbum);
-                
+
                 CurrentView = SongsVM;
             });
 

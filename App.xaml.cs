@@ -15,6 +15,10 @@ namespace MusicStreaming
     /// </summary>
     public partial class App : Application
     {
+        /// <summary>
+        /// Event handler that is called when the application is starting up.
+        /// </summary>
+        /// <param name="e">The <see cref="StartupEventArgs"/> that contains the event data.</param>
         protected override void OnStartup(StartupEventArgs e)
         {
             DatabaseFacade facade = new DatabaseFacade(new MusicStreamingDataContext());

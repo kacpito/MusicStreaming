@@ -14,17 +14,21 @@ using MusicStreaming.MVVM.View;
 
 namespace MusicStreaming.MVVM.ViewModel
 {
+    /// <summary>
+    /// Represents the view model for the login view.
+    /// </summary>
     class LoginViewModel : ObservableObject
     {
-        //Fields
         private string _username;
         private SecureString _password;
         private string _errorMessage;
         private bool _isViewVisible = true;
 
-        //Properties
-        public string Username 
-        { 
+        /// <summary>
+        /// Gets or sets the username.
+        /// </summary>
+        public string Username
+        {
             get => _username;
             set
             {
@@ -32,7 +36,11 @@ namespace MusicStreaming.MVVM.ViewModel
                 OnPropertyChanged(nameof(Username));
             }
         }
-        public SecureString Password 
+
+        /// <summary>
+        /// Gets or sets the password.
+        /// </summary>
+        public SecureString Password
         {
             get => _password;
             set
@@ -41,8 +49,12 @@ namespace MusicStreaming.MVVM.ViewModel
                 OnPropertyChanged(nameof(Password));
             }
         }
+
+        /// <summary>
+        /// Gets or sets the error message.
+        /// </summary>
         public string ErrorMessage
-        { 
+        {
             get => _errorMessage;
             set
             {
@@ -50,8 +62,12 @@ namespace MusicStreaming.MVVM.ViewModel
                 OnPropertyChanged(nameof(ErrorMessage));
             }
         }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether the view is visible.
+        /// </summary>
         public bool IsViewVisible
-        { 
+        {
             get => _isViewVisible;
             set
             {
@@ -60,9 +76,19 @@ namespace MusicStreaming.MVVM.ViewModel
             }
         }
 
+        /// <summary>
+        /// Gets the login command.
+        /// </summary>
         public ICommand LoginCommand { get; }
+
+        /// <summary>
+        /// Gets the sign-up command.
+        /// </summary>
         public ICommand SignUpCommand { get; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LoginViewModel"/> class.
+        /// </summary>
         public LoginViewModel()
         {
             LoginCommand = new RelayCommand(ExecuteLoginCommand, CanExecuteLoginCommand);

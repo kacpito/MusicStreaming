@@ -16,10 +16,13 @@ using System.Windows.Shapes;
 namespace MusicStreaming.MVVM.View
 {
     /// <summary>
-    /// Logika interakcji dla klasy SignUpSuccessView.xaml
+    /// Represents the sign-up success view.
     /// </summary>
     public partial class SignUpSuccessView : UserControl
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SignUpSuccessView"/> class.
+        /// </summary>
         public SignUpSuccessView()
         {
             InitializeComponent();

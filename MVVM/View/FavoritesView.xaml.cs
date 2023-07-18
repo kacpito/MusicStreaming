@@ -16,10 +16,13 @@ using System.Windows.Shapes;
 namespace MusicStreaming.MVVM.View
 {
     /// <summary>
-    /// Logika interakcji dla klasy FavoritesView.xaml
+    /// Represents a user control that displays favorite songs.
     /// </summary>
     public partial class FavoritesView : UserControl
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FavoritesView"/> class.
+        /// </summary>
         public FavoritesView()
         {
             InitializeComponent();

@@ -18,10 +18,13 @@ using System.Windows.Shapes;
 namespace MusicStreaming.MVVM.View
 {
     /// <summary>
-    /// Logika interakcji dla klasy SongsView.xaml
+    /// Represents the songs view.
     /// </summary>
     public partial class SongsView : UserControl
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SongsView"/> class.
+        /// </summary>
         public SongsView()
         {
             InitializeComponent();

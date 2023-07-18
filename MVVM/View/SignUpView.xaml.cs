@@ -15,10 +15,13 @@ using System.Windows.Shapes;
 namespace MusicStreaming.MVVM.View
 {
     /// <summary>
-    /// Logika interakcji dla klasy SignUpView.xaml
+    /// Represents the sign-up view.
     /// </summary>
     public partial class SignUpView : Window
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SignUpView"/> class.
+        /// </summary>
         public SignUpView()
         {
             InitializeComponent();

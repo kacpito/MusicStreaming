@@ -17,10 +17,13 @@ using System.Windows.Shapes;
 namespace MusicStreaming.MVVM.View
 {
     /// <summary>
-    /// Logika interakcji dla klasy AlbumsView.xaml
+    /// Represents a user control that displays albums.
     /// </summary>
     public partial class AlbumsView : UserControl
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AlbumsView"/> class.
+        /// </summary>
         public AlbumsView()
         {
             InitializeComponent();

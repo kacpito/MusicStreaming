@@ -15,13 +15,26 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace MusicStreaming.MVVM.ViewModel
 {
+    /// <summary>
+    /// Represents the view model for the sign-up process.
+    /// </summary>
     class SignUpViewModel : ObservableObject
     {
+        /// <summary>
+        /// Gets or sets the view model for the sign-up form.
+        /// </summary>
         public SignUpFormViewModel FormVM { get; set; }
+
+        /// <summary>
+        /// Gets or sets the view model for the sign-up success page.
+        /// </summary>
         public SignUpSuccessViewModel SuccessVM { get; set; }
 
         private object _currentView;
 
+        /// <summary>
+        /// Gets or sets the current view.
+        /// </summary>
         public object CurrentView
         {
             get { return _currentView; }
@@ -32,8 +45,14 @@ namespace MusicStreaming.MVVM.ViewModel
             }
         }
 
+        /// <summary>
+        /// Gets the sign-up command.
+        /// </summary>
         public ICommand SignUpCommand { get; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SignUpViewModel"/> class.
+        /// </summary>
         public SignUpViewModel()
         {
             SignUpCommand = new RelayCommand(ExecuteSignUpCommand, CanExecuteSignUpCommand);

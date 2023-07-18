@@ -15,10 +15,13 @@ using System.Windows.Shapes;
 namespace MusicStreaming.MVVM.View
 {
     /// <summary>
-    /// Logika interakcji dla klasy LoginView.xaml
+    /// Represents the login window.
     /// </summary>
     public partial class LoginView : Window
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LoginView"/> class.
+        /// </summary>
         public LoginView()
         {
             InitializeComponent();
@@ -26,7 +29,7 @@ namespace MusicStreaming.MVVM.View
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            if(e.LeftButton == MouseButtonState.Pressed)
+            if (e.LeftButton == MouseButtonState.Pressed)
             {
                 DragMove();
             }

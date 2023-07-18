@@ -16,10 +16,13 @@ using System.Windows.Shapes;
 namespace MusicStreaming.MVVM.View
 {
     /// <summary>
-    /// Logika interakcji dla klasy HomeView.xaml
+    /// Represents a user control for the home view.
     /// </summary>
     public partial class HomeView : UserControl
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HomeView"/> class.
+        /// </summary>
         public HomeView()
         {
             InitializeComponent();

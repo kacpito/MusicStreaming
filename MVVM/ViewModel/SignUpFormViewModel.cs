@@ -8,9 +8,16 @@ using System.Threading.Tasks;
 
 namespace MusicStreaming.MVVM.ViewModel
 {
+    /// <summary>
+    /// Represents the view model for the sign-up form.
+    /// </summary>
     class SignUpFormViewModel : ObservableObject
     {
         private string _username;
+
+        /// <summary>
+        /// Gets or sets the username.
+        /// </summary>
         public string Username
         {
             get { return _username; }
@@ -22,6 +29,10 @@ namespace MusicStreaming.MVVM.ViewModel
         }
 
         private SecureString _password;
+
+        /// <summary>
+        /// Gets or sets the password.
+        /// </summary>
         public SecureString Password
         {
             get { return _password; }
@@ -33,6 +44,10 @@ namespace MusicStreaming.MVVM.ViewModel
         }
 
         private string _errorMessage;
+
+        /// <summary>
+        /// Gets or sets the error message.
+        /// </summary>
         public string ErrorMessage
         {
             get => _errorMessage;
